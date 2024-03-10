@@ -11,6 +11,8 @@ fn main() {
         SubCommand::Dump(command) => {
             action::dump::run(command.value);
         }
-        SubCommand::Clean(command) => {}
+        SubCommand::Clean(command) => {
+            action::clean::run(command.value);
+        }
     }
 }
