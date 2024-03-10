@@ -1,3 +1,4 @@
+mod clean;
 mod dump;
 
 use clap::Parser;
@@ -12,4 +13,5 @@ pub struct Command {
 #[derive(clap::Subcommand, Debug)]
 pub enum SubCommand {
     Dump(dump::Command),
+    Clean(clean::Command),
 }
