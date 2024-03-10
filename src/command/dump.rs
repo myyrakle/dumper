@@ -4,6 +4,9 @@ use clap::Args;
 
 #[derive(Clone, Debug, Default, Deserialize, Args)]
 pub struct ConfigOptions {
+    #[clap(short, long, default_value = "false", help = "trash file path")]
+    pub path: Option<String>,
+
     #[clap(short, long, default_value = "false", help = "trash file size")]
     pub size: String,
 
