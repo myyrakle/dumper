@@ -2,8 +2,14 @@
 name = "trash_dumper"
 version = "0.1.0"
 edition = "2021"
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+license = "MIT"
+authors = ["myyrakle <sssang97@naver.com>"] 
+description = "LISP" 
+keywords = [] 
+repository = "https://github.com/myyrakle/trash_dumper" 
+readme = "README.md"
+documentation = "https://docs.rs/trash_dumper/latest/trash_dumper" 
+homepage = "https://github.com/myyrakle/trash_dumper/blob/master/README.md" 
 
 [dependencies]
 atty = { version = "0.2.14", optional = true }
