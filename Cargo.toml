@@ -1,10 +1,10 @@
 [package]
 name = "trash_dumper"
-version = "1.0.0"
+version = "1.0.1"
 edition = "2021"
 license = "MIT"
 authors = ["myyrakle <sssang97@naver.com>"] 
-description = "LISP" 
+description = "trash file dumper" 
 keywords = [] 
 repository = "https://github.com/myyrakle/trash_dumper" 
 readme = "README.md"
