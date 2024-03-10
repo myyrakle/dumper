@@ -6,6 +6,9 @@ use clap::Args;
 pub struct ConfigOptions {
     #[clap(short, long, default_value = "false", help = "trash file size")]
     pub size: String,
+
+    #[clap(short, long, help = "trash file size")]
+    pub count: Option<u32>,
 }
 
 #[derive(Clone, Debug, Args)]

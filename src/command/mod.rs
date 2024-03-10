@@ -1,4 +1,6 @@
-use clap::{Args, Parser};
+mod dump;
+
+use clap::Parser;
 
 #[derive(Parser, Debug)]
 #[clap(author, version, about, long_about = None)]
@@ -8,4 +10,6 @@ pub struct Command {
 }
 
 #[derive(clap::Subcommand, Debug)]
-pub enum SubCommand {}
+pub enum SubCommand {
+    Dump(dump::Command),
+}
