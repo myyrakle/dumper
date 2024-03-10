@@ -1,5 +1,5 @@
-mod clean;
-mod dump;
+pub mod clean;
+pub mod dump;
 
 use clap::Parser;
 

@@ -1,3 +1,4 @@
+mod action;
 mod command;
 
 use clap::Parser;
@@ -7,7 +8,9 @@ fn main() {
     let args = command::Command::parse();
 
     match args.action {
-        SubCommand::Dump(command) => {}
+        SubCommand::Dump(command) => {
+            action::dump::run(command.value);
+        }
         SubCommand::Clean(command) => {}
     }
 }
