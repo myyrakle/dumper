@@ -1,4 +1,8 @@
+use std::path::PathBuf;
+
 use crate::command::dump::ConfigOptions;
+
+use uuid::Uuid;
 
 pub fn run(option: ConfigOptions) {
     let byte_size = if option.size.ends_with("g") {
@@ -16,4 +20,26 @@ pub fn run(option: ConfigOptions) {
     } else {
         option.size.parse::<u64>().unwrap()
     };
+
+    let count = option.count.unwrap_or(1);
+
+    let base_path = option.path;
+
+    for _ in 0..count {
+        let mut trash_path = PathBuf::new();
+        trash_path.push(&base_path);
+
+        let filename = format!("{}.trashfile", Uuid::new_v4().to_string());
+        trash_path.push(filename);
+
+        println!("Creating file: {:?}", trash_path);
+
+        let file = std::fs::OpenOptions::new()
+            .write(true)
+            .create(true)
+            .open(&trash_path)
+            .unwrap();
+
+        file.set_len(byte_size).unwrap();
+    }
 }
