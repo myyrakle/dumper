@@ -1,6 +1,11 @@
 use clap::{Args, Parser};
-use serde::Deserialize;
 
 #[derive(Parser, Debug)]
 #[clap(author, version, about, long_about = None)]
-pub struct Command {}
+pub struct Command {
+    #[clap(subcommand)]
+    pub action: SubCommand,
+}
+
+#[derive(clap::Subcommand, Debug)]
+pub enum SubCommand {}
