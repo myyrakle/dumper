@@ -1,4 +1,4 @@
-use std::path::PathBuf;
+use std::{io::Write, path::PathBuf};
 
 use crate::command::dump::ConfigOptions;
 
@@ -34,12 +34,15 @@ pub fn run(option: ConfigOptions) {
 
         println!("Creating file: {:?}", trash_path);
 
-        let file = std::fs::OpenOptions::new()
+        let mut file = std::fs::OpenOptions::new()
             .write(true)
             .create(true)
             .open(&trash_path)
             .unwrap();
 
         file.set_len(byte_size).unwrap();
+
+        let trash = vec![1; byte_size as usize];
+        file.write_all(trash.as_slice()).unwrap();
     }
 }
